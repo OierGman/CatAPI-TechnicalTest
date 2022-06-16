@@ -9,8 +9,8 @@ Simple navigation with a random image from TheCatAPI library
 
 # Informative page
 From the data retrieved some key data was extracted
-![Screenshot](example-facts.png)
+![Screenshot](example facts.png)
 
 # Mood booster
 Cycles through cat gifs at users request
-![Screenshot](mood-boost.png)
+![Screenshot](mood boost.png)
