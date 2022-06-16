@@ -13,9 +13,9 @@ def index():
 @app.route('/', methods=['POST', 'GET'])
 def image():
     if request.method == "POST":
-        response = requests.get("https://randomfox.ca/floof")
+        response = requests.get("https://api.thecatapi.com/v1/images/search?mime_types=gif")
         cat = response.json()
-        content = cat['image']
+        content = cat[0]['url']
         return render_template('index.html', image=content, data=cat)
     else:
         return index()
