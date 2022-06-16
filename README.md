@@ -5,12 +5,15 @@ After considering carrying the task out in JavaScript (most likely the easiest w
 
 # Landing page 
 Simple navigation with a random image from TheCatAPI library
+
 ![Screenshot](index.png)
 
 # Informative page
 From the data retrieved some key data was extracted
+
 ![Screenshot](facts.png)
 
 # Mood booster
 Cycles through cat gifs at users request
+
 ![Screenshot](mood.png)
