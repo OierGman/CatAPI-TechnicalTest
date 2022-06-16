@@ -3,9 +3,11 @@ from flask import Flask, render_template, request
 import random
 
 app = Flask(__name__)
+# the cat api personally generated key
 api_key = '423997f7-8635-4a53-9387-67ff2fd9fa7f'
 
 
+# handles landing page
 @app.route('/')
 def index():
     if request.method == "GET":
@@ -15,10 +17,12 @@ def index():
         return render_template('index.html', image=content)
 
 
+# handles factual page
 @app.route('/types', methods=['GET'])
 def service():
     response = requests.get("https://api.thecatapi.com/v1/breeds?limit=30", headers={'x-api-key': api_key})
     breeds = response.json()
+    # dissecting the json data that is delivered when making requests
     if request.method == "GET":
         random_number = random.randint(0, 29)
         breed = [i['name'] for i in breeds]
@@ -31,9 +35,11 @@ def service():
         desc = indexOf[random_number]['description']
         orig = indexOf[random_number]['origin']
         temp = indexOf[random_number]['temperament']
+        # passing data the html
         return render_template('types.html', info=info, image=img, name=name, desc=desc, orig=orig, temp=temp)
 
 
+# handles mood boost page
 @app.route('/bad-day', methods=['POST', 'GET'])
 def gif():
     if request.method == "POST" or "GET":
